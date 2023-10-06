@@ -1,0 +1,8 @@
+pyarrow
+polars
+pandas
+arrow_odbc
+adbc_driver_manager
+adbc_driver_postgresql
+adbc_driver_snowflake
+duckdb
