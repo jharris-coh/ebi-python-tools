@@ -5,8 +5,8 @@ import arrow_odbc
 import adbc_driver_postgresql.dbapi
 import adbc_driver_snowflake.dbapi
 from typing import Union
-from connections import PostgresConnection, MsSqlConnection, SnowflakeConnection
-from globals import Table
+from .connections import PostgresConnection, MsSqlConnection, SnowflakeConnection
+from .globals import Table
 import duckdb
 
 

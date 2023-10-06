@@ -1,5 +1,5 @@
-from sources import DatabaseSource, ArrowTableSource
-from targets import Target
+from .sources import DatabaseSource, ArrowTableSource
+from .targets import Target
 from typing import Union
 
 

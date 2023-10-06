@@ -2,8 +2,8 @@ import pyodbc
 import adbc_driver_postgresql.dbapi
 import adbc_driver_snowflake.dbapi
 import pyarrow as pa
-from globals import Table
-from connections import PostgresConnection, MsSqlConnection, SnowflakeConnection
+from .globals import Table
+from .connections import PostgresConnection, MsSqlConnection, SnowflakeConnection
 from typing import Union
 
 
