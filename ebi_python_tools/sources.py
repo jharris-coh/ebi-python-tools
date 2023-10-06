@@ -94,8 +94,10 @@ class DatabaseSource:
     def to_pandas(self) -> pd.DataFrame:
         return self.to_arrow().to_pandas()
 
-    def preview(self, top=1000) -> pl.DataFrame:
-        return pl.DataFrame(self.to_arrow(top=top))
+    def preview(self, top=1000) -> None:
+        t = self.to_arrow(top=top)
+        duckdb.sql("select * from t").show()
+        del t
 
 
 class ArrowTableSource:
@@ -116,6 +118,8 @@ class ArrowTableSource:
     def to_pandas(self) -> pd.DataFrame:
         return self._table.to_pandas()
 
-    def preview(self, top=1000) -> pl.DataFrame:
-        t = self._table
-        return duckdb.sql(f"select * from t limit {str(top)}").pl()
+    def preview(self, top=1000) -> None:
+        t = self._table.slice(0, top)
+        duckdb.sql(f"select * from t").show()
+        del t
+
